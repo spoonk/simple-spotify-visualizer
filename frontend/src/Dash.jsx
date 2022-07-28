@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import SongDisplay from './SongDisplay';
 
 export default function Dash({code, setLoggedIn}) {
-    const [song, setSong] = useState(undefined);
+    const [context, setContext] = useState(undefined);
     const accessToken = useAuth(code)
 
     useEffect(() => {
@@ -20,10 +20,10 @@ export default function Dash({code, setLoggedIn}) {
         }, 10000);
         console.log(songInterval)
         return () => {clearInterval(songInterval)};
-    }, [song]);
+    }, [context]);
 
     const getSong = async() => {
-        const res = await fetch("https://api.spotify.com/v1/me/player?type=episode,track", {
+        const res = await fetch("https://api.spotify.com/v1/me/player", {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": "Bearer " + accessToken,
@@ -31,12 +31,13 @@ export default function Dash({code, setLoggedIn}) {
             }
         })
         const data = await res.json();
-        setSong(data.item);
+        console.log(data)
+        setContext(data)
     }
 
   return (
     <div className='dash-container d-flex align-items-center justify-content-center flex-column'>
-        {song && <SongDisplay item={song} />}
+        {context && <SongDisplay item={context.item} progress={context.progress_ms} playing={context.is_playing}/>}
     </div>
   )
 }
