@@ -21,7 +21,7 @@ module.exports = {clientId, clientSecret}
 
 Then, you should be able to run the app by calling `npm start` from within `frontend` and calling `node .` from within `server`.
 
-If that's too much, checkout the screenshots below and hope I post a live version of the app soon :)
+If that's too much, check out the screenshots below and hope I post a live version of the app soon :)
 
 ## Screenshots
 ![](./screenshots/rain2.png)
