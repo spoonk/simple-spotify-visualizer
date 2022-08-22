@@ -23,7 +23,13 @@ Then, you should be able to run the app by calling `npm start` from within `fron
 
 If that's too much, check out the screenshots below and hope I post a live version of the app soon :)
 
-## Screenshots
+# Live Version Update
+To post a live version of the app, I would need to request a manual review of the 
+app by Spotify. If they approve it, any user would be able to use it rather
+than just my Spotify account. However, I doubt the app would be approved since
+it doesn't quite fit the developer policy that the app should `not mimic, or replicate or attempt to replace a core user experience of Spotify` ([Spotify Developer policy](https://developer.spotify.com/policy/), Section III part 11). Because of this, I will not be moving forward on posting a live version of the app :(
+
+# Screenshots
 ![](./screenshots/rain2.png)
 ![](./screenshots/rain.png)
 ![](./screenshots/hiddenbrain.png)

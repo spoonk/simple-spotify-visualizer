@@ -3,7 +3,7 @@ import Dash from "./Dash";
 import { useState } from "react";
 import { clientId } from "./credentials";
 
-let scopes = ['user-read-private', 'user-read-email', 'user-read-playback-state', 'user-read-currently-playing']
+let scopes = ['user-read-playback-state']
 let redirectUri = 'http://localhost:3000'
 
 var spotifyApi = new SpotifyWebApi({
