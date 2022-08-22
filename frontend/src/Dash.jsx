@@ -15,10 +15,8 @@ export default function Dash({ code, setLoggedIn }) {
     useEffect(() => {
         const songInterval = setInterval(() => {
             if (!accessToken) return
-            console.log("refreshing song")
             getSong()
         }, 10000);
-        console.log(songInterval)
         return () => { clearInterval(songInterval) };
     }, [context]);
 
@@ -37,7 +35,14 @@ export default function Dash({ code, setLoggedIn }) {
 
     return (
         <div className='dash-container d-flex align-items-center justify-content-center flex-column'>
-            {context && <SongDisplay item={context.item} progress={context.progress_ms} playing={context.is_playing} />}
+            {context &&
+                <SongDisplay
+                    item={context.item ? context.item : {
+                        show: { name: 'advertisement' },
+                        name: 'some ad :(',
+                        images: [{ url: 'https://i.insider.com/5f0e062e1918241f3843a185?width=1000&format=jpeg&auto=webp' }],
+                        duration_ms: 100000
+                    }} progress={context.progress_ms} playing={context.is_playing} />}
         </div>
     )
 }
